@@ -41,7 +41,7 @@ visibilityPassword(block, password, eye)
 if (registerButton) {
 	registerButton.addEventListener('click', () => {
 		// Перехід на сторінку реєстрації
-		window.location.href = '/pages/registration.html';
+		window.location.href = 'pages/registration.html';
 	});
 }
 
@@ -64,7 +64,7 @@ authButton.addEventListener('click', function () {
 		const user = users[userKey];
 		if (user.email === emailInput && user.password === passwordInput) {
 			localStorage.setItem('loggedInUser', JSON.stringify(user));
-			window.location.href = '/pages/user-page.html';
+			window.location.href = 'pages/user-page.html';
 			break;  // Виходимо з циклу, якщо знайдений користувач
 		} else if (validateField(document.getElementById('email-auth'), emailInput, 'email', 6) &&
 			validateField(document.getElementById('password-auth'), passwordInput, 'пароль', 8)) {
