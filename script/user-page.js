@@ -24,7 +24,7 @@ if (exit) {
 		}
 
 	} else {
-		window.location.href = '/index.html';
+		window.location.href = '../index.html';
 	}
 }
 
