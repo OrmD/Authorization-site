@@ -71,6 +71,14 @@ export function visibilityPassword(block, passInput, icon) {
 export function goToAuthPage(btn) {
 	btn.addEventListener('click', () => {
 		localStorage.removeItem('loggedInUser'); // Видаляємо збереженого користувача
-		window.location.href = '../index.html';
+		let baseURL;
+		if (window.location.hostname.includes('github.io')) {
+			// Якщо на GitHub Pages
+			baseURL = window.location.origin + '/' + window.location.pathname.split('/')[1] + '/';
+		} else {
+			// Якщо не на GitHub Pages (наприклад, локальний сервер)
+			baseURL = window.location.origin + '/';
+		}
+		window.location.href = baseURL + 'index.html';
 	});
 }
