@@ -71,6 +71,8 @@ export function visibilityPassword(block, passInput, icon) {
 export function goToAuthPage(btn) {
 	btn.addEventListener('click', () => {
 		localStorage.removeItem('loggedInUser'); // Видаляємо збереженого користувача
-		window.location.href = '../index.html';
+		const baseURL = window.location.origin + '/';
+		console.log(baseURL);
+		window.location.href = baseURL + 'index.html';
 	});
 }
