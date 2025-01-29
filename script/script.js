@@ -1,9 +1,9 @@
 const swiper = new Swiper('.swiper', {
 	// Optional parameters
 	direction: 'horizontal',
-	/*autoplay: {
+	autoplay: {
 		delay: 3000,
-	},*/
+	},
 	loop: true,
 
 	// If we need pagination
@@ -59,18 +59,27 @@ authButton.addEventListener('click', function () {
 	const emailInput = document.getElementById('email-auth').value.trim();
 	const passwordInput = document.getElementById('password-auth').value.trim();
 
-
-	for (let userKey in users) {
-		const user = users[userKey];
-		if (user.email === emailInput && user.password === passwordInput) {
-			localStorage.setItem('loggedInUser', JSON.stringify(user));
-			window.location.href = 'pages/user-page.html';
-			break;  // Виходимо з циклу, якщо знайдений користувач
-		} else if (validateField(document.getElementById('email-auth'), emailInput, 'email', 6) &&
-			validateField(document.getElementById('password-auth'), passwordInput, 'пароль', 8)) {
-			errorBlock.classList.add('anim')
+	if (users) {
+		for (let userKey in users) {
+			const user = users[userKey];
+			if (user.email === emailInput && user.password === passwordInput) {
+				localStorage.setItem('loggedInUser', JSON.stringify(user));
+				window.location.href = 'pages/user-page.html';
+				break;  // Виходимо з циклу, якщо знайдений користувач
+			} else {
+				errorBlock.innerHTML = `<p>Користувача не знайдено. Перевірте введені дані</p>`;
+				errorBlock.classList.add('anim');
+			}
+			if (validateField(document.getElementById('email-auth'), emailInput, 'email', 6) &&
+				validateField(document.getElementById('password-auth'), passwordInput, 'пароль', 8)) {
+				return true
+			}
 		}
+	} else if (validateField(document.getElementById('email-auth'), emailInput, 'email', 6) &&
+		validateField(document.getElementById('password-auth'), passwordInput, 'пароль', 8)) {
+		errorBlock.classList.add('anim')
 	}
+
 
 });
 

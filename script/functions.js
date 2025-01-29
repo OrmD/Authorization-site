@@ -11,7 +11,7 @@ export function validateField(field, value, fieldName, number) {
 		errorBlock.innerHTML = `<p>Введіть у поле ${fieldName}, ${number} або більше символів</p>`;
 		errorBlock.classList.add('anim'); // Додаємо клас анімації для блоку з помилкою
 		field.parentElement.classList.add('error-input'); // Позначаємо поле як помилкове
-		console.log(`Недостатня кількість символів у полі ${field.getAttribute('name')}`);
+
 		return false;
 	}
 
@@ -22,7 +22,7 @@ export function validateField(field, value, fieldName, number) {
 			errorBlock.innerHTML = '<p>Невірний формат Email.</p>';
 			errorBlock.classList.add('anim'); // Анімація для повідомлення про помилку
 			field.parentElement.classList.add('error-input'); // Додаємо помилковий стиль полю
-			console.log(`Невірний формат Email у полі ${field.getAttribute('name')}`);
+
 			return false;
 		}
 	}

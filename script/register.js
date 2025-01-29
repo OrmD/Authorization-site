@@ -55,6 +55,9 @@ registBtn.addEventListener('click', () => {
 		succesBlock.classList.add('anim')
 		setTimeout(() => {
 			succesBlock.classList.remove('anim')
+			name.value = ""
+			email.value = ""
+			password.value = ""
 		}, 2000);
 	}
 })
@@ -62,7 +65,6 @@ registBtn.addEventListener('click', () => {
 // Завантаження користувачів з localStorage
 const storedUsers = JSON.parse(localStorage.getItem('users')) || {};
 Object.assign(users, storedUsers);
-console.log(users);
 
 window.addEventListener('load', () => {
 	const container = document.querySelector('.registration__conteiner');
