@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Test project</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+	<link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+	<header class="warning-header">
+		<div class="warning-header__body">
+			<p class="warning-header__text">Це тестовий проєкт. Будь ласка, не вводьте реальні паролі або будь-які
+				конфіденційні дані !!!</p>
+		</div>
+	</header>
+	<div class="log-in">
+		<div class="log-in__container">
+
+			<aside class="log-in__aside">
+				<!-- Slider main container -->
+				<div class="swiper">
+					<!-- Additional required wrapper -->
+
+					<div class="swiper-wrapper">
+						<!-- Slides -->
+						<div class="swiper-slide">
+
+
+							<img src="./image-file/IMG/aside-foto-1.png" alt="" srcset="">
+						</div>
+						<div class="swiper-slide">
+
+							<img src="./image-file/IMG/aside-foto-2.png" alt="" srcset="">
+						</div>
+						<div class="swiper-slide">
+
+							<img src="./image-file/IMG/aside-foto-3.png" alt="" srcset="">
+						</div>
+						...
+					</div>
+					<!-- If we need pagination -->
+					<div class="swiper-pagination"></div>
+
+				</div>
+
+			</aside>
+
+			<main class="log-in__main">
+				<div class="log-in__body">
+					<h1>Welcome!</h1>
+					<form action="" class="log-in__form form">
+						<div class="form__input-box ">
+							<svg xmlns="http://www.w3.org/2000/svg" height="24" fill="none">
+								<path d="M24 0v24H0V0h24Z" />
+								<path stroke="#828282" stroke-linejoin="round" stroke-width="1.5"
+									d="M19.36 5.04c.9 0 1.64.73 1.64 1.64v10.63c0 .91-.74 1.64-1.64 1.64H4.63c-.9 0-1.63-.73-1.63-1.64V6.68c0-.91.73-1.64 1.63-1.64h14.73Z" />
+								<path stroke="#828282" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+									d="m3.11 6.07 7.7 5.5c.69.5 1.63.5 2.32.01l7.74-5.52" />
+							</svg>
+							<input id="email-auth" type="text" placeholder="Email" required autocomplete="on">
+						</div>
+						<div class="error-block"></div>
+						<div class="form__input-box">
+							<svg xmlns="http://www.w3.org/2000/svg" height="24" fill="none">
+								<path stroke="#828282" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+									d="M8 10V7a3.999 3.999 0 1 1 8 0v3M12 14v3" />
+								<path stroke="#828282" stroke-linejoin="round" stroke-width="1.5"
+									d="M7 21a2 2 0 0 1-2-2v-7c0-1.11.89-2 2-2h10a2 2 0 0 1 2 2v7c0 1.1-.9 2-2 2H7Z" />
+							</svg>
+							<input id="password-auth" type="password" placeholder="Password" required>
+							<div class="block-svg" style="height: 24px;">
+								<img id="eye" src="./image-file/SVG/eye-off.svg" alt="" srcset="">
+							</div>
+						</div>
+						<button id="auth-btn" class="form__log-in-button blue-btn" type="button"> Log in</button>
+						<div class="form__register">
+							<p class="form__register-text">Have no account yet?</p>
+							<button id="regist-btn" class="form__register-button no-bg-btn" type="button">
+								Registration</button>
+						</div>
+					</form>
+
+				</div>
+			</main>
+		</div>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+	<script type="module" src="./script/script.js" defer></script>
+
+</body>
+
+
+</html>

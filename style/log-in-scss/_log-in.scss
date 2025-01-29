@@ -1,0 +1,170 @@
+@import ".././standart-style/_variables";
+@import "../standart-style/_styles-block";
+.log-in {
+  background: url("../image-file/IMG/bg1.jpg") no-repeat center / cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+
+  // .log-in__aside
+  &__container {
+    display: flex;
+    flex-direction: row;
+    max-width: 1218px;
+    width: 40%;
+    height: 645px;
+
+    border: 1px solid rgb(230, 233, 250);
+    border-radius: 24px;
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    &.active {
+      transition: width 1.3s linear;
+      width: 100%; /* Кінцева ширина блоку */
+      @media (max-width: 1250px) {
+        width: 90%;
+        /* Зменшуємо ширину для адаптивності */
+      }
+      @media (max-width: 768px) {
+        @include adaptiv-space(height, 645, 420, 1, px);
+        @include adaptiv-space(margin-left, 140, 10, 1, px);
+        @include adaptiv-space(margin-right, 140, 10, 1, px);
+
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+  &__aside {
+    position: relative;
+    z-index: 30;
+    min-width: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-radius: 24px;
+    background: $maincolor;
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+  &__container.active &__aside {
+    transition: all 0.5s linear;
+    border-radius: 24px 0 0 24px;
+    width: 60%;
+    @media (max-width: 1024px) {
+      @include adaptiv-space(width, 70, 50, 1, "%");
+    }
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+  // .log-in__main
+
+  &__main {
+    width: 40%;
+    position: absolute; /* Щоб можна було розташувати праву частину над або під синьою */
+    top: 0;
+    right: 45%;
+    height: 100%;
+    z-index: 10; /* Спочатку під синьою частиною */
+    opacity: 0;
+    @media (max-width: 768px) {
+      position: static;
+    }
+  }
+  /* Додамо активний клас для висування правої частини */
+  &__container.active &__main {
+    opacity: 1;
+    right: 0;
+    transition: all 0.7s ease-in 0.5s;
+    @media (max-width: 1024px) {
+      transition: all 0.7s ease-in 1s;
+      @include adaptiv-space(width, 40, 50, 1, "%");
+    }
+    @media (max-width: 768px) {
+      width: 100%;
+      display: flex;
+      align-items: center;
+    }
+  }
+  // .log-in__body
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 64px;
+    flex: 1;
+    padding: 135px 64px 32px 64px;
+    @media (max-width: 1024px) {
+      @include adaptiv-space(padding-left, 64, 30, 1, px);
+      @include adaptiv-space(padding-right, 64, 30, 1, px);
+    }
+    @media (max-width: 768px) {
+      padding: 0;
+    }
+    @media (max-width: 375px) {
+      gap: 20px;
+    }
+  }
+
+  &__form {
+  }
+}
+.form {
+  // .form__input-box
+  width: 282px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  @media (max-width: 375px) {
+    width: 90%;
+    gap: 10px;
+  }
+  &__input-box {
+    display: flex;
+    align-items: center;
+    @include border-input;
+  }
+
+  // .form__log-in-button
+
+  &__log-in-button {
+  }
+
+  // .form__register
+
+  &__register {
+  }
+
+  // .form__register-text
+
+  &__register-text {
+    @include adaptiv-space(padding-bottom, 16, 0, 1, px);
+    text-align: center;
+    color: #ffffffa8;
+    @media (max-width: 375px) {
+      margin-top: 0;
+    }
+  }
+
+  // .form__register-button
+
+  &__register-button {
+  }
+  & .error-block {
+    top: 225px;
+    border-radius: 8px;
+    transform: scale(0);
+    transition: top 0.3s ease 0s, transform 0.3s ease 0s;
+    &.anim {
+      top: 190px;
+      left: 67px;
+      transition: top 0.3s ease 0s, transform 0.3s ease 0s;
+      transform: scale(1);
+    }
+  }
+}

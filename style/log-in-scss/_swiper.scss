@@ -1,0 +1,17 @@
+.swiper {
+  margin: auto 0;
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+.swiper-wrapper {
+}
+.swiper-slide {
+  img {
+    display: block;
+    margin: auto;
+    width: 50%;
+  }
+}
+.swiper-pagination {
+}

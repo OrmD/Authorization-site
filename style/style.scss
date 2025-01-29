@@ -1,0 +1,16 @@
+@import "./log-in-scss/_log-in";
+@import "./register-scss/_register";
+@import "./log-in-scss/_swiper";
+@import "./standart-style/_variables";
+@import "./standart-style/styles-block";
+@import "./page-user/_page-user";
+body {
+  margin: 0 0;
+  font-size: $fontSize;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh; /* Альтернативний спосіб */
+  font-family: $primaryFont;
+}

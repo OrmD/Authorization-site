@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../css/style.css">
+	<title>Registration</title>
+</head>
+
+<body>
+	<header class="warning-header">
+		<div class="warning-header__body">
+			<p class="warning-header__text">Це тестовий проєкт. Будь ласка, не вводьте реальні паролі або будь-які
+				конфіденційні дані !!!</p>
+		</div>
+	</header>
+	<div class="registration">
+		<div class="registration__body">
+			<div class="registration__conteiner">
+
+				<h1 class="registration__title">Реєстрація</h1>
+				<form class="registration__form">
+
+					<label for="inputName">Ім'я</label>
+					<div class="registration__input-box ">
+						<input type="text" id="inputName" name="name" maxlength="20" placeholder="Name"
+							autocomplete="on" required>
+					</div>
+					<label for="inputEmail">Email</label>
+					<div class="registration__input-box ">
+						<input type="email" id="inputEmail" name="email" minlength="5" maxlength="50"
+							placeholder="Email" inputmode="email" required>
+					</div>
+					<label for="inputPassword">Пароль</label>
+					<div class="registration__input-box block-password">
+						<input type="password" id="inputPassword" name="password" minlength="8" maxlength="60"
+							placeholder="Password" required>
+						<div class="block-svg" style="height: 24px;">
+							<img id="eye" src="../image-file/SVG/eye-off.svg" alt="" srcset="">
+						</div>
+
+					</div>
+					<button type="submit" id="reg-btn" class=" registration__btn blue-btn ">Зареєструватись</button>
+					<p class="registration__register-text">Якщо маєте акаунт можете:</p>
+					<button id="auth-button" class="registration__btn blue-btn" type="button">Авторизуватись</button>
+				</form>
+
+			</div>
+			<div class="error-block"></div>
+			<div class="succes-block"> Реєстрація пройшла успішно <span> Вітаємо!</span></div>
+		</div>
+
+
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+	<script type="module" src="../script/register.js" defer></script>
+
+
+</body>
+
+</html>

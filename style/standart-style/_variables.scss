@@ -1,0 +1,78 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,regular,600,700);
+
+$maxWidth: 1920;
+$maxWidthContainer: 1024;
+$primaryFont: Open Sans;
+$maincolor: rgb(57, 73, 171);
+$greyColor: rgb(130, 130, 130);
+$whiteColor: rgba(255, 255, 255, 0.945);
+$fontSize: 0.875rem;
+$transition-btn: box-shadow 0.3s linear 0s, background-color 0.4s linear 0s,
+  color 0.2s linear 0s, transform 0.3s ease-in-out;
+
+@mixin border-input {
+  padding: 7px;
+  border: 1.5px solid rgb(208, 208, 208);
+  border-radius: 8px;
+}
+
+// Адаптивна властивість  ==========================================================
+
+@mixin adaptiv-space($property, $starSize, $minSize, $type, $unit) {
+  $addSize: $starSize - $minSize;
+  $unit: unquote($unit); // Видалення лапок з одиниці вимірювання
+
+  @if $unit == "%" {
+    $factor: 2;
+    // Якщо одиниця вимірювання - %, застосовуємо іншу формулу
+    @if $type == 1 {
+      #{$property}: #{$starSize}#{$unit};
+      @media (max-width: #{$maxWidthContainer + px}) {
+        #{$property}: calc(
+          #{$minSize}#{$unit} + #{$addSize} *
+            ((100vw - 320px) / #{$maxWidthContainer - 320}) / $factor
+        );
+      }
+    } @else if $type == 2 {
+      #{$property}: #{$starSize}#{$unit};
+      @media (min-width: #{$maxWidthContainer + px}) {
+        #{$property}: calc(
+          #{$minSize}#{$unit} + #{$addSize} *
+            ((100vw - 320px) / #{$maxWidth - 320}) / $factor
+        );
+      }
+    } @else {
+      #{$property}: calc(
+        #{$minSize}#{$unit} +
+          #{$addSize} *
+          ((100vw - 320px) / #{$maxWidth - 320}) /
+          $factor
+      );
+    }
+  } @else {
+    // Якщо одиниця вимірювання не %, застосовуємо стандартну формулу
+    @if $type == 1 {
+      #{$property}: #{$starSize}#{$unit};
+      @media (max-width: #{$maxWidthContainer + px}) {
+        #{$property}: calc(
+          #{$minSize}#{$unit} + #{$addSize}* ((100vw - 320px) / #{$maxWidthContainer -
+                320})
+        );
+      }
+    } @else if $type == 2 {
+      #{$property}: #{$starSize}#{$unit};
+      @media (min-width: #{$maxWidthContainer + px}) {
+        #{$property}: calc(
+          #{$minSize}#{$unit} + #{$addSize} *
+            ((100vw - 320px) / #{$maxWidth - 320})
+        );
+      }
+    } @else {
+      #{$property}: calc(
+        #{$minSize}#{$unit} +
+          #{$addSize} *
+          ((100vw - 320px) / #{$maxWidth - 320})
+      );
+    }
+  }
+}
